@@ -1,24 +1,17 @@
 import { FlatList } from "react-native";
 import styles from "./styles";
-import CardProductMedium from '../CardProductMedium'
+import CardProductMedium from '../CardProductMedium';
+import { ProductProps } from '../../../types';
 
-type Product = {
-  key: number;
-  name: string;
-  description: string;
-  price: number;
-  uri: string;
+type ListProductsProps = {
+  listProducts: ProductProps[];
 };
 
-type Products = {
-  listProducts: Product[];
-};
-
-export default function ListProducts({ listProducts }: Products) {
+export default function ListProducts({ listProducts }: ListProductsProps) {
   return (
     <FlatList
       data={listProducts}
-      keyExtractor={(item) => item.key.toString()}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => <CardProductMedium item={item} />}
       contentContainerStyle={styles.containerFlatList}
       numColumns={2}
