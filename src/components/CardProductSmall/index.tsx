@@ -35,7 +35,7 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
           onPress={() => handleOpenProduct()}
           style={styles.containerDescriptionProduct}
         >
-          <Text style={styles.textTitleProduct}>{item.name}</Text>
+          <Text style={styles.textTitleProduct}>{item.title}</Text>
           <Text style={styles.textDescriptionProduct}>{item.description}</Text>
         </TouchableOpacity>
       </View>

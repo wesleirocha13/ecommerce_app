@@ -21,10 +21,10 @@ export default function CardProductMedium({item} : CardProductMediumProps) {
     <TouchableOpacity onPress={() => handleOpenProduct()} style={{width: '50%', padding: 4, marginBottom: 10}}>
       <View style={styles.container} key={item.id}>
         <Image
-          source={require("../../../assets/images/air_jordan.jpeg")}
+          source={{uri: item.image || 'image', scale: 1}}
           style={styles.productImg}
         />
-        <Text style={styles.productTitle}>{item.name}</Text>
+        <Text style={styles.productTitle}>{item.title}</Text>
         <Text style={styles.productPrice}>R${item.price}</Text>
       </View>
     </TouchableOpacity>

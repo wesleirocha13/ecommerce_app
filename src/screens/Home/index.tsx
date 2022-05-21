@@ -1,22 +1,51 @@
-import { View } from 'react-native';
-import ListProducts from '../../components/ListProducts';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import styles from "./styles";
+import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
+import CardProductMedium from "../../components/CardProductMedium";
+import {ProductProps} from '../../../types'
 
-const data = [
-  {id: 1, name: 'Produto 1', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 520, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 2, name: 'Produto 2', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 620, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 3, name: 'Produto 3', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 720, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 4, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 5, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 6, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 7, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 8, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-]
+type ItemProps = {
+  item: ProductProps;
+};
 
 export default function Home() {
+
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const limitRegs = useRef(10);
+
+  const getProducts = async ()=>{
+    setIsLoading(true);
+    const res = await axios({
+      method: 'get',
+      url: `https://fakestoreapi.com/products?limit=${limitRegs.current}`,
+    })
+    setData(res.data)
+    setIsLoading(false);
+  }
+
+  const getMoreRegs = ()=>{
+    limitRegs.current += 10;
+    getProducts();
+  }
+
+  useEffect(() =>{
+    getProducts()
+  },[])
+
   return (
     <View style={styles.container}>
-      <ListProducts listProducts={data} componentType='CardProductMedium' numberColumns={2}/>
+      <FlatList
+        data={data}
+        keyExtractor={(item : ProductProps) => item.id.toString()}
+        renderItem={({item}: ItemProps) => <CardProductMedium item={item} />}
+        contentContainerStyle={styles.containerFlatList}
+        numColumns={2}
+        onEndReached={getMoreRegs}
+        onEndReachedThreshold={0.1}
+        ListFooterComponent={isLoading ? <ActivityIndicator size={'large'} /> : null}
+      />
     </View>
   );
 }

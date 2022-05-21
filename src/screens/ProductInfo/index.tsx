@@ -1,54 +1,55 @@
 import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import { RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootTabParamList } from "../../../types";
-import { useNavigation } from "@react-navigation/native";
+import { RootTabParamList, ProductProps } from "../../../types";
 import styles from "./styles";
-
-type ShoppingCartScreenProps = NativeStackNavigationProp<
-  RootTabParamList,
-  "ShoppingCart"
->;
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
 type ProductInfoProps = {
   route: RouteProp<{ params: { id: string } }, "params">;
 };
 
-const data = {
-  id: 1,
-  name: "Produto 1",
-  description:
-    "Air Jordan, perfeito para jogarbasquete Tênis Nike Air Jordan, perf ênis Nike Air Jordan, perf ",
-  price: 520,
-  uri: "../../../assets/images/air_jordan.jpeg",
-};
-
 export default function ProductInfo({ route }: ProductInfoProps) {
-  const navigation = useNavigation<ShoppingCartScreenProps>();
+  const productId = route.params.id;
+  const [product, setProduct] = useState<ProductProps>()
+
+  const getProduct = async ()=>{
+    const res = await axios({
+      method: 'get',
+      url: `https://fakestoreapi.com/products/${productId}`,
+    })
+    setProduct(res.data)
+  }
+
+  useEffect(()=>{
+    getProduct();
+  },[])
+
   return (
     <View style={styles.container}>
       <View style={styles.containerImg}>
         <Image
-          source={require("../../../assets/images/air_jordan.jpeg")}
+          source={{uri: product?.image || 'image', scale: 1}}
           style={styles.img}
         />
       </View>
       <View style={styles.containerInformationProduct}>
         <Text style={styles.textTitleProduct}>
-          {data.name}
+          {product?.title}
         </Text>
         <ScrollView style={styles.containerDescriptionProduct}>
           <Text style={styles.textDescriptionProduct}>
-            {data.description}
+            {product?.description}
           </Text>
         </ScrollView>
       </View>
       <View style={styles.containerPriceProduct}>
         <Text style={styles.textPriceProduct}>
-          R${data.price}
+          {product ? `R$ ${product.price}` : ''}
         </Text>
         <Text style={styles.textPortionProduct}>
-          Até 6x de {(data.price / 6).toFixed(2)} sem juros
+          {product ? `Até 6x de  ${(product.price / 6).toFixed(2)} sem juros` : ''}
         </Text>
       </View>
       <View style={styles.containerButtonPurchase}>

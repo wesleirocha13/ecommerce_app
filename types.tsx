@@ -10,10 +10,12 @@ declare global {
 
 export type ProductProps = {
   id: number;
-  name: string;
+  title: string;
   description: string;
   price: number;
-  uri: string;
+  image: string;
+  category: string;
+  rating: object;
 }
 
 export type RootStackParamList = {
