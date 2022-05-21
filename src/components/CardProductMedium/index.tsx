@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableOpacity } from "react-native"; 
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackParamList, ProductProps } from '../../../types'
@@ -18,7 +18,7 @@ export default function CardProductMedium({item} : CardProductMediumProps) {
   };
 
   return (
-    <TouchableOpacity onPress={() => handleOpenProduct()}>
+    <TouchableOpacity onPress={() => handleOpenProduct()} style={{width: '50%', padding: 4, marginBottom: 10}}>
       <View style={styles.container} key={item.id}>
         <Image
           source={require("../../../assets/images/air_jordan.jpeg")}

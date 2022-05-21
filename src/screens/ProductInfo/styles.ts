@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        padding: 15, 
-        flex: 1, 
+        padding: 15,
+        flex: 1,
         backgroundColor: "#FFF"
     },
     containerImg: {
@@ -16,16 +16,16 @@ const styles = StyleSheet.create({
         overflow: "scroll"
     },
     containerPriceProduct: {
-        flex: 1, 
+        flex: 1,
         justifyContent: "flex-end"
     },
     containerButtonPurchase: {
-        flex: 1, 
+        flex: 1,
         justifyContent: "flex-end"
     },
     img: {
-        height: "100%", 
-        width: "100%", 
+        height: "100%",
+        width: "100%",
         resizeMode: "stretch",
     },
     textTitleProduct: {
@@ -35,25 +35,25 @@ const styles = StyleSheet.create({
         paddingTop: 5,
     },
     textDescriptionProduct: {
-        paddingTop: 5, 
+        paddingTop: 5,
         fontSize: 16
     },
     textPriceProduct: {
-        textAlign: "center", 
-        fontSize: 24, 
+        textAlign: "center",
+        fontSize: 24,
         fontWeight: "bold"
     },
     textPortionProduct: {
-        textAlign: "center", 
+        textAlign: "center",
         color: "grey"
     },
     buttonPurchase: {
-        backgroundColor: 'red', 
+        backgroundColor: 'red',
         width: '100%' ,
-        height: '76%', 
-        borderRadius: 5, 
-        alignItems: 'center', 
-        padding: 9
+        height: '76%',
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     textButtonPurchase: {
         textTransform: 'uppercase',

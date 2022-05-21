@@ -2,21 +2,21 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
-    padding: 8,
-    margin: 3,
-    marginBottom: 15,
     borderRadius: 5,
     borderColor: "#000",
     borderWidth: 0.4,
+    width: '100%',
   },
   productImg: {
-    height: 180,
-    width: 169,
+    height: 130,
+    width: '100%',
+    resizeMode: "stretch"
   },
   productTitle: {
+    textAlign: 'center',
     paddingTop: 20,
     maxWidth: 170,
+    overflow: 'hidden'
   },
   productPrice: {
     paddingTop: 20,

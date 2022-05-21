@@ -18,6 +18,9 @@ export default function BottomTabNavigator() {
           title: "Home",
           headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarStyle: {
+            height: 44
+          },
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Filter")}
