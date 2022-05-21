@@ -41,6 +41,9 @@ export default function BottomTabNavigator() {
           title: "Carrinho",
           headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <TabBarIcon name="cart-plus" color={color} />,
+          tabBarStyle: {
+            height: 44
+          }
         }}
       />
     </BottomTab.Navigator>

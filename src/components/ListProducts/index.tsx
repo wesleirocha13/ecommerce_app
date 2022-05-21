@@ -1,20 +1,44 @@
-import { FlatList } from "react-native";
+import { FlatList, View, Text } from "react-native";
 import styles from "./styles";
-import CardProductMedium from '../CardProductMedium';
-import { ProductProps } from '../../../types';
+import CardProductMedium from "../CardProductMedium";
+import CardProductSmall from "../CardProductSmall";
+import { ProductProps } from "../../../types";
 
 type ListProductsProps = {
   listProducts: ProductProps[];
+  componentType: string;
+  numberColumns: number;
+};
+type ItemProps = {
+  item: ProductProps;
 };
 
-export default function ListProducts({ listProducts }: ListProductsProps) {
+export default function ListProducts({
+  listProducts,
+  componentType,
+  numberColumns,
+}: ListProductsProps) {
+  const renderItem = ({ item }: ItemProps) => {
+    let component;
+
+    if (componentType === "CardProductMedium") {
+      component = <CardProductMedium item={item} />;
+    } else {
+      component = <CardProductSmall item={item} />;
+    }
+
+    return <>{component}</>;
+  };
+
   return (
-    <FlatList
-      data={listProducts}
-      keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => <CardProductMedium item={item} />}
-      contentContainerStyle={styles.containerFlatList}
-      numColumns={2}
-    />
+    <View>
+      <FlatList
+        data={listProducts}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderItem}
+        contentContainerStyle={styles.containerFlatList}
+        numColumns={numberColumns}
+      />
+    </View>
   );
 }

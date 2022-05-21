@@ -15,7 +15,7 @@ const data = [
 export default function Home() {
   return (
     <View style={{backgroundColor: '#f9f9f9'}}>      
-      <ListProducts listProducts={data} />      
+      <ListProducts listProducts={data} componentType='CardProductMedium' numberColumns={2}/>      
     </View>
   );
 }
