@@ -9,8 +9,7 @@ const data = [
   {id: 5, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
   {id: 6, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
   {id: 7, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 8, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-  
+  {id: 8, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},  
 ]
 
 export default function Home() {
