@@ -11,7 +11,8 @@ export default function StackNavigator() {
         <Stack.Screen name="Root" component={TabNavigator} options={{ headerShown: false }} />
         <Stack.Group screenOptions={{ presentation: 'modal' }}>
           <Stack.Screen name="Filter" component={Filter} options={{
-            title: 'Filtros'
+            title: 'Filtros',
+            headerTitleAlign: 'center',
           }}/>
         </Stack.Group>
       </Stack.Navigator>

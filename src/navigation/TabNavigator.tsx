@@ -16,6 +16,7 @@ export default function BottomTabNavigator() {
         component={Home}
         options={({ navigation }: RootTabScreenProps<"Home">) => ({
           title: "Home",
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
@@ -38,6 +39,7 @@ export default function BottomTabNavigator() {
         component={ShoppingCart}
         options={{
           title: "Carrinho",
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <TabBarIcon name="cart-plus" color={color} />,
         }}
       />
