@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList, ProductProps } from "../../../types";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
+import { primaryColor, greyColor, redColor} from '../../constants/Colors'
 
 type ProductInfoScreenProps = NativeStackNavigationProp<
   RootStackParamList,
@@ -45,19 +46,19 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
         <View style={styles.containerQuantityButtons}>
           <View style={styles.containerBoxQuantityButtons}>
             <TouchableOpacity style={styles.containerPlusButton}>
-              <FontAwesome name="minus-circle" size={18} />
+              <FontAwesome name="minus-circle" size={18} color={greyColor}/>
             </TouchableOpacity>
             <View style={styles.containerQuantityProduct}>
               <Text style={styles.textQuantityProduct}>2</Text>
             </View>
             <TouchableOpacity style={styles.containerMinusButton}>
-              <FontAwesome name="plus-circle" size={18} />
+              <FontAwesome name="plus-circle" size={18} color={primaryColor} />
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.containerTrashButton}>
           <TouchableOpacity>
-            <FontAwesome name="trash" size={26} />
+            <FontAwesome name="trash-o" size={26} color={redColor}/>
           </TouchableOpacity>
         </View>
       </View>

@@ -11,6 +11,7 @@ import { FontAwesome } from "@expo/vector-icons";
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
+import {primaryColor} from '../constants/Colors';
 
 type ShoppingCartScreenProps = NativeStackNavigationProp<
   RootTabParamList,
@@ -34,6 +35,9 @@ export default function StackNavigator() {
           options={{
             title: "Filtros",
             headerTitleAlign: "center",
+            headerStyle:{
+              backgroundColor: primaryColor
+            }
           }}
         />
         <Stack.Screen
@@ -41,6 +45,9 @@ export default function StackNavigator() {
           component={ProductInfo}
           options={{
             headerTitle: '',
+            headerStyle:{
+              backgroundColor: primaryColor
+            },
             headerRight: () => {
               const navigation = useNavigation<ShoppingCartScreenProps>();
               return (

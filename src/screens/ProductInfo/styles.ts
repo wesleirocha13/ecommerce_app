@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { primaryColor, greyColor } from '../../constants/Colors'
 
 const styles = StyleSheet.create({
     container: {
@@ -45,10 +46,10 @@ const styles = StyleSheet.create({
     },
     textPortionProduct: {
         textAlign: "center",
-        color: "grey"
+        color: greyColor
     },
     buttonPurchase: {
-        backgroundColor: 'red',
+        backgroundColor: primaryColor,
         width: '100%' ,
         height: '76%',
         borderRadius: 5,
@@ -57,7 +58,8 @@ const styles = StyleSheet.create({
     },
     textButtonPurchase: {
         textTransform: 'uppercase',
-        color: '#FFF'
+        color: '#000',
+        fontSize: 16
     }
 
 });

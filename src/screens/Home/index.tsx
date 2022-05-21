@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 import ListProducts from '../../components/ListProducts';
+import styles from "./styles";
 
 const data = [
   {id: 1, name: 'Produto 1', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 520, uri: '../../../assets/images/air_jordan.jpeg'},
@@ -9,13 +10,13 @@ const data = [
   {id: 5, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
   {id: 6, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
   {id: 7, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
-  {id: 8, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},  
+  {id: 8, name: 'Produto 4', description: 'Tênis Nike Air Jordan, perfeito para jogar basquete', price: 820, uri: '../../../assets/images/air_jordan.jpeg'},
 ]
 
 export default function Home() {
   return (
-    <View style={{backgroundColor: '#f9f9f9'}}>      
-      <ListProducts listProducts={data} componentType='CardProductMedium' numberColumns={2}/>      
+    <View style={styles.container}>
+      <ListProducts listProducts={data} componentType='CardProductMedium' numberColumns={2}/>
     </View>
   );
 }

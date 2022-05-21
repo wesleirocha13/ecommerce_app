@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import ShoppingCart from "../screens/ShoppingCart";
 import TabBarIcon from "../components/TabBarIcon";
 import { FontAwesome } from "@expo/vector-icons";
+import {primaryColor} from '../constants/Colors';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -16,11 +17,15 @@ export default function BottomTabNavigator() {
         component={Home}
         options={({ navigation }: RootTabScreenProps<"Home">) => ({
           title: "Home",
+          headerStyle:{
+            backgroundColor: primaryColor
+          },
           headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           tabBarStyle: {
             height: 44
           },
+          tabBarActiveTintColor: primaryColor,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Filter")}
@@ -42,7 +47,11 @@ export default function BottomTabNavigator() {
         component={ShoppingCart}
         options={{
           title: "Carrinho",
+          headerStyle:{
+            backgroundColor: primaryColor
+          },
           headerTitleAlign: 'center',
+          tabBarActiveTintColor: primaryColor,
           tabBarIcon: ({ color }) => <TabBarIcon name="cart-plus" color={color} />,
           tabBarStyle: {
             height: 44

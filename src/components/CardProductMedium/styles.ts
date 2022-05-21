@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderWidth: 0.4,
     width: '100%',
+    backgroundColor: '#FFF'
   },
   productImg: {
     height: 130,

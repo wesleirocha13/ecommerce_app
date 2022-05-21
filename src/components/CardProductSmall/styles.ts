@@ -1,39 +1,40 @@
 import { StyleSheet } from "react-native";
+import { greyColor } from '../../constants/Colors'
 
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 10, 
-        borderBottomColor: '#000', 
+        marginBottom: 10,
+        borderColor: '#000',
         borderWidth: 0.4,
-        height: 150, 
-        width: "100%", 
-        flex: 1, 
+        height: 150,
+        width: "100%",
+        flex: 1,
         backgroundColor: "#FFF"
     },
     containerInfoProduct: {
-        display: "flex", 
-        flexDirection: "row", 
+        display: "flex",
+        flexDirection: "row",
         flex: 2
     },
     containerImgProduct: {
         flex: 1
     },
     containerDescriptionProduct: {
-        flex: 2, 
+        flex: 2,
         justifyContent: "space-evenly"
     },
     containerActions: {
-        flex: 1, 
+        flex: 1,
         flexDirection: "row"
     },
     containerPriceProduct: {
-        justifyContent: "center", 
-        flex: 1, 
+        justifyContent: "center",
+        flex: 1,
         alignItems: "center"
     },
     containerQuantityButtons: {
-        flex: 2, 
-        justifyContent: "center", 
+        flex: 2,
+        justifyContent: "center",
         alignItems: "center"
     },
     containerBoxQuantityButtons: {
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         width: "70%",
         borderWidth: 0.4,
-        borderColor: "#000",
+        borderColor: greyColor,
         borderRadius: 5,
     },
     containerPlusButton: {
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     containerQuantityProduct: {
         borderLeftWidth: 1,
         borderRightWidth: 1,
-        borderColor: "#000",
+        borderColor: greyColor,
         paddingLeft: 10,
         paddingRight: 10,
         padding: 1,
@@ -66,21 +67,21 @@ const styles = StyleSheet.create({
     },
 
     textTitleProduct: {
-        paddingLeft: 5, 
+        paddingLeft: 5,
         fontSize: 16
     },
     textDescriptionProduct: {
-        overflow: "hidden", 
-        paddingLeft: 5, 
-        color: "grey"
+        overflow: "hidden",
+        paddingLeft: 5,
+        color: greyColor
     },
     imgProduct: {
-        height: "100%", 
-        width: "100%", 
+        height: "100%",
+        width: "100%",
         resizeMode: "stretch"
     },
     textPrice: {
-        fontSize: 18 
+        fontSize: 18
     },
     textQuantityProduct: {
         fontSize: 18
