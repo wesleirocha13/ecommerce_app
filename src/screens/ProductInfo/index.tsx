@@ -1,10 +1,10 @@
 import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import { RouteProp } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootTabParamList, ProductProps } from "../../../types";
+import { ProductProps } from "../../../types";
 import styles from "./styles";
 import { useEffect, useState } from "react";
-import axios from 'axios';
+import { getProduct } from './actions';
+import { showToastError } from '../../utils/toast'
 
 type ProductInfoProps = {
   route: RouteProp<{ params: { id: string } }, "params">;
@@ -14,16 +14,15 @@ export default function ProductInfo({ route }: ProductInfoProps) {
   const productId = route.params.id;
   const [product, setProduct] = useState<ProductProps>()
 
-  const getProduct = async ()=>{
-    const res = await axios({
-      method: 'get',
-      url: `https://fakestoreapi.com/products/${productId}`,
-    })
-    setProduct(res.data)
-  }
-
   useEffect(()=>{
-    getProduct();
+    (async ()=>{
+      try{
+        const response = await getProduct(productId)
+        setProduct(response)
+      }catch(err){
+        showToastError('Erro ao obter o produto. Tente novamente!')
+      }
+    })()
   },[])
 
   return (
