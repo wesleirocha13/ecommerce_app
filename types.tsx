@@ -16,6 +16,7 @@ export type ProductProps = {
   image: string;
   category: string;
   rating: object;
+  quantityInCart?: number;
 }
 
 export type RootStackParamList = {

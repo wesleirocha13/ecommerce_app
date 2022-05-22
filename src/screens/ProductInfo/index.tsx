@@ -1,10 +1,12 @@
-import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, Image, TouchableOpacity, ScrollView, } from "react-native";
 import { RouteProp } from "@react-navigation/native";
 import { ProductProps } from "../../../types";
 import styles from "./styles";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getProduct } from './actions';
-import { showToastError } from '../../utils/toast'
+import { showToastError, showToastSuccess } from '../../utils/toast';
+import CartContext from '../../context/cart';
+import {CartContextProps} from '../../context/cart';
 
 type ProductInfoProps = {
   route: RouteProp<{ params: { id: string } }, "params">;
@@ -12,7 +14,8 @@ type ProductInfoProps = {
 
 export default function ProductInfo({ route }: ProductInfoProps) {
   const productId = route.params.id;
-  const [product, setProduct] = useState<ProductProps>()
+  const [product, setProduct] = useState<ProductProps>();
+  const cartContext = useContext<CartContextProps | null>(CartContext);
 
   useEffect(()=>{
     (async ()=>{
@@ -24,6 +27,11 @@ export default function ProductInfo({ route }: ProductInfoProps) {
       }
     })()
   },[])
+
+  const handleAddProductInCart = () => {
+    cartContext?.addProductInCart(product);
+    showToastSuccess('Produto adicionado ao carrinho com sucesso!')
+  }
 
   return (
     <View style={styles.container}>
@@ -52,7 +60,7 @@ export default function ProductInfo({ route }: ProductInfoProps) {
         </Text>
       </View>
       <View style={styles.containerButtonPurchase}>
-        <TouchableOpacity style={styles.buttonPurchase}>
+        <TouchableOpacity style={styles.buttonPurchase} onPress={() => handleAddProductInCart()}>
           <Text style={styles.textButtonPurchase}>Comprar</Text>
         </TouchableOpacity>
       </View>

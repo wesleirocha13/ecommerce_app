@@ -4,7 +4,10 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList, ProductProps } from "../../../types";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
-import { primaryColor, greyColor, redColor} from '../../constants/Colors'
+import { primaryColor, greyColor, redColor } from "../../constants/Colors";
+import { useContext } from "react";
+import CartContext from "../../context/cart";
+import { CartContextProps } from "../../context/cart";
 
 type ProductInfoScreenProps = NativeStackNavigationProp<
   RootStackParamList,
@@ -17,9 +20,24 @@ type CardProductMediumProps = {
 
 export default function CardProductSmall({ item }: CardProductMediumProps) {
   const navigation = useNavigation<ProductInfoScreenProps>();
+  const cartContext = useContext<CartContextProps | null>(CartContext);
 
   const handleOpenProduct = () => {
     navigation.navigate("ProductInfo", { id: item.id.toString() });
+  };
+
+  const handleIncreaseAmountOfProduct = () => {
+    cartContext?.increaseAmountOfProduct(item.id);
+  };
+
+  const handleRemoveProductFromCart = () => {
+    cartContext?.removeProductFromCart(item.id);
+  };
+
+  const handleDecreaseAmountOfProduct = () => {
+    if(item.quantityInCart && item.quantityInCart > 1){
+      cartContext?.decreaseAmountOfProduct(item.id);
+    }
   };
 
   return (
@@ -27,7 +45,7 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
       <View style={styles.containerInfoProduct}>
         <View style={styles.containerImgProduct}>
           <Image
-            source={require("../../../assets/images/air_jordan.jpeg")}
+            source={{ uri: item.image || "image", scale: 1 }}
             style={styles.imgProduct}
           />
         </View>
@@ -36,7 +54,9 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
           style={styles.containerDescriptionProduct}
         >
           <Text style={styles.textTitleProduct}>{item.title}</Text>
-          <Text style={styles.textDescriptionProduct}>{item.description}</Text>
+          <Text style={styles.textDescriptionProduct}>
+            tenho que adicionar a descrição com tratativa de tamanho
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.containerActions}>
@@ -45,20 +65,33 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
         </View>
         <View style={styles.containerQuantityButtons}>
           <View style={styles.containerBoxQuantityButtons}>
-            <TouchableOpacity style={styles.containerPlusButton}>
-              <FontAwesome name="minus-circle" size={18} color={greyColor}/>
+            <TouchableOpacity
+              style={styles.containerPlusButton}
+              onPress={() => handleDecreaseAmountOfProduct()}
+            >
+              <FontAwesome name="minus-circle" size={18} color={greyColor} />
             </TouchableOpacity>
             <View style={styles.containerQuantityProduct}>
-              <Text style={styles.textQuantityProduct}>2</Text>
+              <Text style={styles.textQuantityProduct}>
+                {item.quantityInCart}
+              </Text>
             </View>
-            <TouchableOpacity style={styles.containerMinusButton}>
+            <TouchableOpacity
+              style={styles.containerMinusButton}
+              onPress={() => handleIncreaseAmountOfProduct()}
+            >
               <FontAwesome name="plus-circle" size={18} color={primaryColor} />
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.containerTrashButton}>
           <TouchableOpacity>
-            <FontAwesome name="trash-o" size={26} color={redColor}/>
+            <FontAwesome
+              name="trash-o"
+              size={26}
+              color={redColor}
+              onPress={() => handleRemoveProductFromCart()}
+            />
           </TouchableOpacity>
         </View>
       </View>
