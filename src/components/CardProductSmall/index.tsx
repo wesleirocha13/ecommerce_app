@@ -9,6 +9,7 @@ import { useContext } from "react";
 import CartContext from "../../context/cart";
 import { CartContextProps } from "../../context/cart";
 import { showToastError, showToastSuccess } from '../../utils/toast'
+import { shortenDescription, shortenTitle } from '../../utils/text'
 
 type ProductInfoScreenProps = NativeStackNavigationProp<
   RootStackParamList,
@@ -58,22 +59,6 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
     }
   };
 
-  //Faz tratativa do tamanho da descrição
-  const shortenDescription = (description:string)=>{
-    if(description.length > 100){
-      return description.substring(0,97)+'...';
-    }
-    return description;
-  }
-
-  //Faz tratativa do tamanho do titulo
-  const shortenTitle = (title:string)=>{
-    if(title.length > 25){
-      return title.substring(0,22)+'...';
-    }
-    return title;
-  }
-
   return (
     <View style={styles.container} key={item.id}>
       <View style={styles.containerInfoProduct}>
@@ -87,9 +72,9 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
           onPress={() => handleOpenProduct()}
           style={styles.containerDescriptionProduct}
         >
-          <Text style={styles.textTitleProduct}>{shortenTitle(item.title)}</Text>
+          <Text style={styles.textTitleProduct}>{shortenTitle(item.title, 25)}</Text>
           <Text style={styles.textDescriptionProduct}>
-            {shortenDescription(item.description)}
+            {shortenDescription(item.description, 100)}
           </Text>
         </TouchableOpacity>
       </View>

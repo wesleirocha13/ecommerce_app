@@ -5,6 +5,7 @@ import styles from "./styles";
 import { useEffect, useState, useContext } from "react";
 import { getProduct } from "./actions";
 import { showToastError, showToastSuccess } from "../../utils/toast";
+import { shortenTitle } from "../../utils/text";
 import CartContext from "../../context/cart";
 import { CartContextProps } from "../../context/cart";
 import { FontAwesome } from "@expo/vector-icons";
@@ -47,7 +48,7 @@ export default function ProductInfo({ route }: ProductInfoProps) {
         />
       </View>
       <View style={styles.containerInformationProduct}>
-        <Text style={styles.textTitleProduct}>{product?.title}</Text>
+        <Text style={styles.textTitleProduct}>{product?.title ? shortenTitle(product.title, 30) : ''}</Text>
         <View style={styles.containerRating}>
           <View>
             <Text style={styles.textRating}>{product?.rating?.rate}</Text>
