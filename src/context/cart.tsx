@@ -18,6 +18,7 @@ const CartContext = createContext<CartContextProps | null>(null);
 export const CartProvider = ({children} : CartProviderProps) => {
   const [productsInCart, setProductsInCart] = useState<ProductProps[]>([]);
 
+  //Adiciona um produto no carrinho
   const addProductInCart = (product : ProductProps)=>{
     const hasProduct = !!productsInCart.find(productInCart => productInCart.id === product.id);
     if(hasProduct){
@@ -33,11 +34,13 @@ export const CartProvider = ({children} : CartProviderProps) => {
     }
   }
 
+  // Remove um produto do carrainho
   const removeProductFromCart = (idProduct : number)=>{
     const updatedProducts = productsInCart.filter(product => product.id !== idProduct);
     setProductsInCart(updatedProducts);
   }
 
+  //Aumenta a quantidade de um produto no carrinho
   const increaseAmountOfProduct = (idProduct : number)=>{
     const newListProduct = productsInCart.map((productInCart)=>{
       if(productInCart.id === idProduct){
@@ -48,6 +51,7 @@ export const CartProvider = ({children} : CartProviderProps) => {
     setProductsInCart(newListProduct);
   }
 
+  //Diminui a quantidade de um produto no carrinho
   const decreaseAmountOfProduct = (idProduct : number)=>{
     const newListProduct = productsInCart.map((productInCart)=>{
       if(productInCart.id === idProduct){

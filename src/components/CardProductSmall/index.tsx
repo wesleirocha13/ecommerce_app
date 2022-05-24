@@ -8,6 +8,7 @@ import { primaryColor, greyColor, redColor } from "../../constants/Colors";
 import { useContext } from "react";
 import CartContext from "../../context/cart";
 import { CartContextProps } from "../../context/cart";
+import { showToastError, showToastSuccess } from '../../utils/toast'
 
 type ProductInfoScreenProps = NativeStackNavigationProp<
   RootStackParamList,
@@ -22,23 +23,56 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
   const navigation = useNavigation<ProductInfoScreenProps>();
   const cartContext = useContext<CartContextProps | null>(CartContext);
 
+  //Abre um produto
   const handleOpenProduct = () => {
     navigation.navigate("ProductInfo", { id: item.id.toString() });
   };
 
+  // Aumenta a quantidade do produto
   const handleIncreaseAmountOfProduct = () => {
-    cartContext?.increaseAmountOfProduct(item.id);
-  };
-
-  const handleRemoveProductFromCart = () => {
-    cartContext?.removeProductFromCart(item.id);
-  };
-
-  const handleDecreaseAmountOfProduct = () => {
-    if(item.quantityInCart && item.quantityInCart > 1){
-      cartContext?.decreaseAmountOfProduct(item.id);
+    try{
+      cartContext?.increaseAmountOfProduct(item.id);
+    }catch(err){
+      showToastError('Erro ao adicionar um produto, tente novamente!')
     }
   };
+
+  // Remove um produto
+  const handleRemoveProductFromCart = () => {
+    try{
+      cartContext?.removeProductFromCart(item.id);
+      showToastSuccess('Produto removido do carrinho com sucesso!')
+    }catch(err){
+      showToastError('Erro ao remover o produto, tente novamente!')
+    }
+  };
+
+  // Diminuiu a quantidade do produto
+  const handleDecreaseAmountOfProduct = () => {
+    if(item.quantityInCart && item.quantityInCart > 1){
+      try{
+        cartContext?.decreaseAmountOfProduct(item.id);
+      }catch(err){
+        showToastError('Erro ao diminuir um produto, tente novamente!')
+      }
+    }
+  };
+
+  //Faz tratativa do tamanho da descrição
+  const shortenDescription = (description:string)=>{
+    if(description.length > 100){
+      return description.substring(0,97)+'...';
+    }
+    return description;
+  }
+
+  //Faz tratativa do tamanho do titulo
+  const shortenTitle = (title:string)=>{
+    if(title.length > 25){
+      return title.substring(0,22)+'...';
+    }
+    return title;
+  }
 
   return (
     <View style={styles.container} key={item.id}>
@@ -53,9 +87,9 @@ export default function CardProductSmall({ item }: CardProductMediumProps) {
           onPress={() => handleOpenProduct()}
           style={styles.containerDescriptionProduct}
         >
-          <Text style={styles.textTitleProduct}>{item.title}</Text>
+          <Text style={styles.textTitleProduct}>{shortenTitle(item.title)}</Text>
           <Text style={styles.textDescriptionProduct}>
-            tenho que adicionar a descrição com tratativa de tamanho
+            {shortenDescription(item.description)}
           </Text>
         </TouchableOpacity>
       </View>

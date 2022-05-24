@@ -1,4 +1,4 @@
-import { View, FlatList, ActivityIndicator } from "react-native";
+import { View, FlatList, RefreshControl } from "react-native";
 import styles from "./styles";
 import { useEffect, useRef, useState } from "react";
 import CardProductMedium from "../../components/CardProductMedium";
@@ -10,37 +10,25 @@ type ItemProps = {
   item: ProductProps;
 };
 
-const QUANTITY_PRODUCTS_TO_PICK = 10;
-
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const limitRegs = useRef(10);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setIsLoading(true);
-        const response = await getProducts(limitRegs.current);
-        setProducts(response);
-        setIsLoading(false);
-      } catch (err) {
-        showToastError('Erro ao obter os produtos. Tente novamente!');
-      }
-    })();
-  }, []);
-
-  const getMoreProducts = async () => {
+  //Obtem a lista de produtos
+  const handleGetProducts = async ()=>{
     try {
-      limitRegs.current += QUANTITY_PRODUCTS_TO_PICK;
       setIsLoading(true);
-      const response = await getProducts(limitRegs.current);
+      const response = await getProducts();
       setProducts(response);
       setIsLoading(false);
     } catch (err) {
-      showToastError('Erro ao obter mais produtos. Tente novamente!');
+      showToastError('Erro ao obter os produtos. Tente novamente!');
     }
-  };
+  }
+
+  useEffect(() => {
+    handleGetProducts();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -50,10 +38,12 @@ export default function Home() {
         renderItem={({ item }: ItemProps) => <CardProductMedium item={item} />}
         contentContainerStyle={styles.containerFlatList}
         numColumns={2}
-        onEndReached={getMoreProducts}
-        onEndReachedThreshold={0.1}
-        ListFooterComponent={
-          isLoading ? <ActivityIndicator size={"large"} /> : null
+        initialNumToRender={10}
+        refreshControl={
+          <RefreshControl
+            refreshing={isLoading}
+            onRefresh={()=>handleGetProducts()}
+          />
         }
       />
     </View>

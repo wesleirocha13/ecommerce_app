@@ -15,13 +15,15 @@ export type ProductProps = {
   price: number;
   image: string;
   category: string;
-  rating: object;
+  rating: {
+    count: number
+    rate: number
+  };
   quantityInCart?: number;
 }
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Filter: undefined;
   ProductInfo: {
     id: string
   };

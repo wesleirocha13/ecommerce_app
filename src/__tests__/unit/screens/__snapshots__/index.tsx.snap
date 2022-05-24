@@ -1,0 +1,310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screens snapshots Create CardProductMedium screen snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "marginBottom": 10,
+      "opacity": 1,
+      "padding": 4,
+      "width": "50%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FFF",
+        "borderColor": "#000",
+        "borderRadius": 5,
+        "borderWidth": 0.4,
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "scale": 1,
+          "uri": "image",
+        }
+      }
+      style={
+        Object {
+          "height": 130,
+          "resizeMode": "stretch",
+          "width": "100%",
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "maxWidth": 170,
+          "overflow": "hidden",
+          "paddingTop": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      title one
+    </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingBottom": 5,
+          "paddingTop": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      R$
+      10
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Screens snapshots Create ProductInfo screen snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+      "flex": 1,
+      "padding": 15,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 5,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "scale": 1,
+          "uri": "image",
+        }
+      }
+      style={
+        Object {
+          "height": "100%",
+          "resizeMode": "stretch",
+          "width": "100%",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingTop": 5,
+          "textAlign": "center",
+        }
+      }
+    />
+    <RCTScrollView
+      style={
+        Object {
+          "overflow": "scroll",
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "paddingTop": 5,
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 24,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#91939a",
+          "textAlign": "center",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#a0dfdf",
+          "borderRadius": 5,
+          "height": "76%",
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        Comprar
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Screens snapshots Create ShoppingCart screen snapshot 1`] = `
+<View>
+  <RCTScrollView
+    ListFooterComponent={null}
+    contentContainerStyle={
+      Object {
+        "marginTop": 5,
+        "padding": 5,
+      }
+    }
+    data={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Screens snapshots Create TabBarIcon screen snapshot 1`] = `<Text />`;
+
+exports[`Screens snapshots Create home screen snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#f9f9f9",
+    }
+  }
+>
+  <RCTScrollView
+    ListFooterComponent={
+      <ActivityIndicator
+        size="large"
+      />
+    }
+    contentContainerStyle={
+      Object {
+        "marginTop": 5,
+        "padding": 5,
+      }
+    }
+    data={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.1}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <ActivityIndicator
+          size="large"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

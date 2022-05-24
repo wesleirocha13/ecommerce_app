@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
         overflow: "scroll"
     },
     containerPriceProduct: {
-        flex: 1,
+        flex: 0.7,
         justifyContent: "flex-end"
     },
     containerButtonPurchase: {
-        flex: 1,
+        flex: 0.9,
         justifyContent: "flex-end"
     },
     img: {
@@ -44,9 +44,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold"
     },
-    textPortionProduct: {
+    textRating: {
         textAlign: "center",
-        color: greyColor
+        color: greyColor,
+        fontWeight: 'bold',
+        fontSize: 15
     },
     buttonPurchase: {
         backgroundColor: primaryColor,
@@ -59,7 +61,18 @@ const styles = StyleSheet.create({
     textButtonPurchase: {
         textTransform: 'uppercase',
         color: '#000',
-        fontSize: 16
+        fontSize: 16,
+        fontWeight: '700'
+    },
+    containerRating: {
+      flexDirection: "row",
+      justifyContent: "center"
+    },
+    containerStarRating: {
+      paddingLeft: 5
+    },
+    containerNumberRating: {
+      paddingLeft: 10
     }
 
 });

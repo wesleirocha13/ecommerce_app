@@ -13,6 +13,7 @@ type CardProductMediumProps = {
 export default function CardProductMedium({item} : CardProductMediumProps) {
   const navigation = useNavigation<ProductInfoScreenProps>();
 
+  //Abre um produto
   const handleOpenProduct = () => {
     navigation.navigate('ProductInfo', {id: item.id.toString()})
   };

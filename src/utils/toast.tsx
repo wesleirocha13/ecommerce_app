@@ -5,7 +5,8 @@ export const showToastError = (message : string) =>{
     title: message,
     backgroundColor: 'danger.500',
     height: '12',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    duration: 2000
   })
 }
 
@@ -14,6 +15,7 @@ export const showToastSuccess = (message : string) =>{
     title: message,
     backgroundColor: 'green.500',
     height: '12',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    duration: 2000
   })
 }
