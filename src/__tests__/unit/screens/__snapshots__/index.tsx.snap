@@ -1,82 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Screens snapshots Create CardProductMedium screen snapshot 1`] = `
-<View
-  accessible={true}
-  collapsable={false}
-  focusable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "marginBottom": 10,
-      "opacity": 1,
-      "padding": 4,
-      "width": "50%",
-    }
-  }
->
-  <View
-    style={
-      Object {
-        "backgroundColor": "#FFF",
-        "borderColor": "#000",
-        "borderRadius": 5,
-        "borderWidth": 0.4,
-        "width": "100%",
-      }
-    }
-  >
-    <Image
-      source={
-        Object {
-          "scale": 1,
-          "uri": "image",
-        }
-      }
-      style={
-        Object {
-          "height": 130,
-          "resizeMode": "stretch",
-          "width": "100%",
-        }
-      }
-    />
-    <Text
-      style={
-        Object {
-          "maxWidth": 170,
-          "overflow": "hidden",
-          "paddingTop": 20,
-          "textAlign": "center",
-        }
-      }
-    >
-      title one
-    </Text>
-    <Text
-      style={
-        Object {
-          "fontSize": 20,
-          "fontWeight": "bold",
-          "paddingBottom": 5,
-          "paddingTop": 20,
-          "textAlign": "center",
-        }
-      }
-    >
-      R$
-      10
-    </Text>
-  </View>
-</View>
-`;
-
 exports[`Screens snapshots Create ProductInfo screen snapshot 1`] = `
 <View
   style={
@@ -126,7 +49,59 @@ exports[`Screens snapshots Create ProductInfo screen snapshot 1`] = `
           "textAlign": "center",
         }
       }
-    />
+    >
+      
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#91939a",
+              "fontSize": 15,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "paddingLeft": 5,
+          }
+        }
+      >
+        <Text />
+      </View>
+      <View
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#91939a",
+              "fontSize": 15,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+           Avaliações
+        </Text>
+      </View>
+    </View>
     <RCTScrollView
       style={
         Object {
@@ -149,7 +124,7 @@ exports[`Screens snapshots Create ProductInfo screen snapshot 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
+        "flex": 0.7,
         "justifyContent": "flex-end",
       }
     }
@@ -165,26 +140,21 @@ exports[`Screens snapshots Create ProductInfo screen snapshot 1`] = `
     >
       
     </Text>
-    <Text
-      style={
-        Object {
-          "color": "#91939a",
-          "textAlign": "center",
-        }
-      }
-    >
-      
-    </Text>
   </View>
   <View
     style={
       Object {
-        "flex": 1,
+        "flex": 0.9,
         "justifyContent": "flex-end",
       }
     }
   >
     <View
+      accessibilityState={
+        Object {
+          "disabled": true,
+        }
+      }
       accessible={true}
       collapsable={false}
       focusable={true}
@@ -212,6 +182,7 @@ exports[`Screens snapshots Create ProductInfo screen snapshot 1`] = `
           Object {
             "color": "#000",
             "fontSize": 16,
+            "fontWeight": "700",
             "textTransform": "uppercase",
           }
         }
@@ -226,7 +197,7 @@ exports[`Screens snapshots Create ProductInfo screen snapshot 1`] = `
 exports[`Screens snapshots Create ShoppingCart screen snapshot 1`] = `
 <View>
   <RCTScrollView
-    ListFooterComponent={null}
+    ListFooterComponent={<BlankPage />}
     contentContainerStyle={
       Object {
         "marginTop": 5,
@@ -238,52 +209,6 @@ exports[`Screens snapshots Create ShoppingCart screen snapshot 1`] = `
     getItemCount={[Function]}
     keyExtractor={[Function]}
     onContentSizeChange={[Function]}
-    onLayout={[Function]}
-    onMomentumScrollBegin={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    viewabilityConfigCallbackPairs={Array []}
-  >
-    <View />
-  </RCTScrollView>
-</View>
-`;
-
-exports[`Screens snapshots Create TabBarIcon screen snapshot 1`] = `<Text />`;
-
-exports[`Screens snapshots Create home screen snapshot 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#f9f9f9",
-    }
-  }
->
-  <RCTScrollView
-    ListFooterComponent={
-      <ActivityIndicator
-        size="large"
-      />
-    }
-    contentContainerStyle={
-      Object {
-        "marginTop": 5,
-        "padding": 5,
-      }
-    }
-    data={Array []}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    keyExtractor={[Function]}
-    onContentSizeChange={[Function]}
-    onEndReached={[Function]}
-    onEndReachedThreshold={0.1}
     onLayout={[Function]}
     onMomentumScrollBegin={[Function]}
     onMomentumScrollEnd={[Function]}
@@ -300,11 +225,75 @@ exports[`Screens snapshots Create home screen snapshot 1`] = `
       <View
         onLayout={[Function]}
       >
-        <ActivityIndicator
-          size="large"
-        />
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "height": 1334,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#91939a",
+                "fontSize": 20,
+                "height": "80%",
+                "textAlign": "center",
+                "textAlignVertical": "center",
+              }
+            }
+          >
+            Nenhum item no carrinho
+          </Text>
+        </View>
       </View>
     </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Screens snapshots Create home screen snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#f9f9f9",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "marginTop": 5,
+        "padding": 5,
+      }
+    }
+    data={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <RCTRefreshControl />
+    <View />
   </RCTScrollView>
 </View>
 `;
